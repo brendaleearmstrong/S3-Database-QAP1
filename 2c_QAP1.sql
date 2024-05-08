@@ -1,24 +1,8 @@
-SELECT 
- 	first_name || ' ' || last_name full_name
-FROM
-	customer
-	
-SELECT * FROM payment
+-- Deliverable 2c) Group the results using a GROUP BY clause.
+-- Table: Film 
+-- GROUP BY: Counting number of movies per rating category using 'GROUP BY' 
 
-SELECT
-	first_name || ' ' || last_name AS full_name,
-	SUM (amount) AS amount
-FROM
-	payment
+SELECT film.rating, COUNT(*) AS "Total Movies"
+FROM film
+GROUP BY film.rating;
 
-INNER JOIN customer ON customer.customer_id = payment.customer_id
--- INNER JOIN customer USING (customer_id)    	
-GROUP BY
-	full_name
-ORDER BY amount DESC;	
-
-SELECT
-	customer.customer_id, payment.customer_id, customer.last_name, payment.amount
-FROM
-	payment
-INNER JOIN customer USING (customer_id)  

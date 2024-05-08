@@ -1,24 +1,7 @@
-SELECT 
- 	first_name || ' ' || last_name full_name
-FROM
-	customer
-	
-SELECT * FROM payment
+-- Reduce the number of rows displayed in the query result using a WHERE clause.
+-- Table: Film 
+-- WHERE: Using 'WHERE' to filter films with ratings of 'PG-13' only.
 
-SELECT
-	first_name || ' ' || last_name AS full_name,
-	SUM (amount) AS amount
-FROM
-	payment
-
-INNER JOIN customer ON customer.customer_id = payment.customer_id
--- INNER JOIN customer USING (customer_id)    	
-GROUP BY
-	full_name
-ORDER BY amount DESC;	
-
-SELECT
-	customer.customer_id, payment.customer_id, customer.last_name, payment.amount
-FROM
-	payment
-INNER JOIN customer USING (customer_id)  
+SELECT title, rating
+FROM film
+WHERE rating = 'PG-13';

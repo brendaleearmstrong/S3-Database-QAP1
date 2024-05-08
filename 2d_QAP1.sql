@@ -1,24 +1,8 @@
-SELECT 
- 	first_name || ' ' || last_name full_name
-FROM
-	customer
-	
-SELECT * FROM payment
+-- Deliverable 2d) Order the results using an ORDER BY clause.
+-- Table: Film 
+-- ORDER BY: Using 'ORDER BY' and 'DESC' to group/sort title from A-Z.
 
-SELECT
-	first_name || ' ' || last_name AS full_name,
-	SUM (amount) AS amount
-FROM
-	payment
+SELECT title, release_year, length, rating
+FROM film
+ORDER BY title ASC;
 
-INNER JOIN customer ON customer.customer_id = payment.customer_id
--- INNER JOIN customer USING (customer_id)    	
-GROUP BY
-	full_name
-ORDER BY amount DESC;	
-
-SELECT
-	customer.customer_id, payment.customer_id, customer.last_name, payment.amount
-FROM
-	payment
-INNER JOIN customer USING (customer_id)  
